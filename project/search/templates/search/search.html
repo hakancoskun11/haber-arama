@@ -1,5 +1,7 @@
 {% load static %}
 
+<h2>Haberim Olsun ile gündemden haberdar olun!</h2>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +11,25 @@
 </head>
 <body>
     <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
-    <form methot="get">
-        <input id="q" name="q" type="text" placeholder="aramanız..."/>
-    </form>
+    
+
+    <div class="wrap">
+        <div class="search">
+            <form methot="get">
+                <input id="q" class="searchTerm" name="q" type="text"  placeholder="aramanız..."/>
+            </form>
+             <i class="fa fa-search"></i>
+          </button>
+        </div>
+     </div>
+    
 
     {% for item in posts %}
     {{ item.id }}
-    <h2> {{ item.title }}   </h2>
+    <h2> <a href="{{ item.url }}">{{ item.title }}</a></h2>
     {{ item.title }}  
     {{ item.desc }} 
-    <a href="{{ item.url }}">link</a>
+    
     {{ item.slug }}
     </br>
     {% endfor %} 
